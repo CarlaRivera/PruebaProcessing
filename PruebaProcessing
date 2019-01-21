@@ -1,0 +1,188 @@
+int i=0;
+int x=0;
+int y=0;
+int x1=0;
+int vel=0;
+
+void setup () {
+size (1000,600);// (ancho,alto)
+background(255);//
+
+}
+void draw () {
+  background(255);
+  figura();
+  salto();
+  paredes();
+  
+  }
+
+
+void figura(){
+   beginShape();
+         fill(0,0,0);
+         vertex(110+x,10+y); 
+         vertex(170+x,10+y);
+         vertex(170+x,20+y); 
+         vertex(180+x,20+y); 
+         vertex(180+x,60+y); 
+         vertex(130+x,60+y); 
+         vertex(130+x,70+y); 
+         vertex(160+x,70+y); 
+         vertex(160+x,80+y);
+         vertex(120+x,80+y); 
+         vertex(120+x,100+y); 
+         vertex(140+x,100+y);
+         vertex(140+x,120+y);
+         vertex(130+x,120+y);
+         vertex(130+x,110+y);
+         vertex(120+x,110+y);
+         vertex(120+x,150+y);
+         vertex(110+x,150+y);
+         vertex(110+x,165+y);
+         vertex(100+x,165+y);
+         vertex(100+x,175+y);
+         vertex(90+x,175+y);
+         vertex(90+x,215+y);
+         vertex(105+x,215+y);
+         vertex(105+x,220+y);
+         vertex(85+x,220+y);
+         vertex(85+x,190+y);
+         vertex(75+x,190+y);
+         vertex(75+x,180+y);
+         vertex(65+x,180+y);
+         vertex(65+x,190+y);
+         vertex(55+x,190+y);
+         vertex(55+x,200+y);
+         vertex(50+x,200+y);
+         vertex(50+x,215+y);
+         vertex(65+x,215+y);
+         vertex(65+x,220+y);
+         vertex(45+x,220+y);
+         vertex(45+x,180+y);
+         vertex(35+x,180+y);
+         vertex(35+x,170+y);
+         vertex(30+x,170+y);
+         vertex(30+x,160+y);
+         vertex(25+x,160+y);
+         vertex(25+x,155+y);
+         vertex(20+x,155+y);
+         vertex(20+x,150+y);
+         vertex(10+x,150+y);
+         vertex(10+x,95+y);
+         vertex(15+x,95+y);
+         vertex(15+x,115+y);
+         vertex(20+x,115+y);
+         vertex(20+x,125+y);
+         vertex(30+x,125+y);
+         vertex(30+x,135+y);
+         vertex(50+x,135+y);
+         vertex(50+x,125+y);
+         vertex(60+x,125+y);
+         vertex(60+x,115+y);
+         vertex(70+x,115+y);
+         vertex(70+x,105+y);
+         vertex(80+x,105+y);
+         vertex(80+x,95+y);
+         vertex(90+x,95+y);
+         vertex(90+x,20+y);
+         vertex(100+x,20+y);
+         vertex(100+x,10+y);
+         vertex(110+x,10+y);
+       endShape();  
+       noFill();
+       fill(165);
+       rect(110+x,20+y,10,10);
+       
+
+}
+
+
+void salto(){
+  fill(200,0,0);
+  rect(50,500,50,50);
+  
+  if(i==1){
+  if(y>200){
+  y=y-5;
+}
+else{
+  i=0;
+  y=300;
+  }
+ }
+}
+
+
+void paredes(){
+  stroke(0);
+
+strokeWeight(5);
+line(100,0,1000,0);
+line(1000,0,1000,500);
+line(1000,600,0,600);
+line(0,600,0,100);
+
+  
+  line(200,0,200,200);
+line(400,200,400,300);
+line(600,300,600,400);
+
+  
+  //limita el paso al borde izquierdo
+    if((x<=5)){
+      x=x+10;
+    }
+//limita el acceso al borde derecho
+if(x>=850){
+//if((x+50)>=width){
+      x=x-10;
+    }
+//limita el acceso al borde superior
+   if(y<=0){
+    y=y+10;
+    }
+//limita el paso al borde inferior
+    if(y>=400){
+    y=y-10;
+    }
+    
+    if((x>20) && (y <= 200)){
+      x=x-10;
+   }
+    else if((x>200) && (y <= 300)){
+      x=x-10;
+   }
+   else if((x>400) && (y <= 350)){
+      x=x-10;
+   }
+}
+ 
+ void keyPressed(){
+   
+     if(keyCode==38) //arriba
+   { 
+   y=y-10;
+   }
+     if(keyCode==40) //abajo
+   { 
+   y=y+10;
+   }
+    if(keyCode==39) //derecha
+   { 
+   x=x+10;
+   }
+    if(keyCode==37) //izquierda
+   { 
+   x=x-10;
+   }
+  }
+  
+  void mouseClicked(){
+  
+  if(mouseButton==LEFT && mouseX>50 && mouseX<100 &&mouseY>500 && mouseY<550){
+  i=1-i;
+  
+  }
+ }
+ 
